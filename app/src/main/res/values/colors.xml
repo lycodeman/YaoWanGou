@@ -6,4 +6,11 @@
     <color name="navigationbar">#e7e7e7</color>
     <color name="colorwhite">#ffffff</color>
     <color name="colorBlack">#080808</color>
+    <color name="colorGrey">#bcb9b9</color>
+    <!--刷新颜色-->
+    <color name="read">#fd0303</color>
+    <color name="blue">#1003fd</color>
+    <color name="green">#00a92d</color>
+    <color name="yellow">#fceb05</color>
+    <color name="divide_gray_color">#767676</color>
 </resources>

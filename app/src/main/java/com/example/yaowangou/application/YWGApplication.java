@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.yaowangou.utils.LoggerUtils;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 
@@ -22,6 +23,7 @@ public class YWGApplication extends Application {
         LoggerUtils.LOGGER_NO_MESSEGE=1;
         LeakCanary.install(this);
         CONTEXT=getApplicationContext();
+        Fresco.initialize(CONTEXT);
     }
 
 

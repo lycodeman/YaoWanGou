@@ -1,13 +1,83 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homepage_swiperefresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d2d1d1"
     tools:context="com.example.yaowangou.fragment.HomePageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="主页" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:background="@color/colorwhite"
+                android:layout_width="match_parent"
+                android:layout_height="130dp">
+                <!--viewpager-->
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/homeepage_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <!--indicator-->
+                <com.shizhefei.view.indicator.FixedIndicatorView
+                    android:id="@+id/homepage_indicator_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="right|bottom"/>
+            </FrameLayout>
 
-</FrameLayout>
+            <include layout="@layout/internal"/>
+            <!--分类列表-->
+            <android.support.v7.widget.RecyclerView
+                android:background="@color/colorwhite"
+                android:id="@+id/homepage_recyclerview_classify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <include layout="@layout/internal"/>
+            <!--添加cardview-->
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:background="@color/colorwhite"
+                android:orientation="vertical"
+                android:id="@+id/homepage_add_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <include layout="@layout/internal"/>
+            <!--热门商品-->
+            <LinearLayout
+                android:background="@color/colorwhite"
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="36dp">
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/like"/>
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="热卖商品"
+                    />
+            </LinearLayout>
+
+            <include layout="@layout/line"/>
+            <android.support.v7.widget.RecyclerView
+                android:background="@color/colorwhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/homepage_recyclerview_hot"/>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.v4.widget.SwipeRefreshLayout>

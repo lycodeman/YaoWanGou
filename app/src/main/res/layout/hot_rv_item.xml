@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/hot_rv_imag"
+        android:layout_width="72dp"
+        android:layout_height="72dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:lines="2"
+            android:id="@+id/hot_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/colorGrey"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/hot_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="价格"
+            android:textColor="@color/read"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/hot_tv_fix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获得要玩币："
+                android:textColor="@color/colorGrey" />
+
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/hot_tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/hot_tv_fix"
+                android:text="0个"
+                android:textColor="@color/colorGrey" />
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="笔"
+                android:layout_alignParentRight="true"
+                android:id="@+id/hot_tv_bi"
+                android:textColor="@color/colorGrey" />
+            <TextView
+                android:textSize="12sp"
+                android:layout_toLeftOf="@id/hot_tv_bi"
+                android:id="@+id/hot_tv_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/read" />
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月销量"
+                android:layout_toLeftOf="@id/hot_tv_sales"
+                android:textColor="@color/colorGrey" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

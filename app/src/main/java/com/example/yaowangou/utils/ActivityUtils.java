@@ -3,8 +3,10 @@ package com.example.yaowangou.utils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.widget.Toast;
 
+import com.example.yaowangou.R;
 import com.example.yaowangou.application.YWGApplication;
 
 import java.util.ArrayList;
@@ -37,5 +39,10 @@ public class ActivityUtils {
 
     public static void toastShortMessege(Object o) {
         Toast.makeText(YWGApplication.CONTEXT, o.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    public static View findViewById(View view,int id){
+        View viewById = view.findViewById(id);
+        return viewById;
     }
 }
