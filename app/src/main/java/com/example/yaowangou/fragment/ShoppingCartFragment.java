@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yaowangou.R;
+import com.example.yaowangou.eventbus.ClossEvent;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class ShoppingCartFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -45,7 +48,12 @@ public class ShoppingCartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shopping_cart, container, false);
+        View inflate = inflater.inflate(R.layout.fragment_shopping_cart, container, false);
+        return inflate;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

@@ -31,6 +31,7 @@ import com.example.yaowangou.bean.Hot;
 import com.example.yaowangou.bean.Icon;
 import com.example.yaowangou.bean.Top;
 import com.example.yaowangou.entity.StaticConstant;
+import com.example.yaowangou.eventbus.ClossEvent;
 import com.example.yaowangou.interfac.IBanner;
 import com.example.yaowangou.interfac.IHot;
 import com.example.yaowangou.interfac.IIcon;
@@ -45,6 +46,8 @@ import com.shizhefei.view.indicator.IndicatorViewPager;
 import com.shizhefei.view.indicator.RecyclerIndicatorView;
 import com.shizhefei.view.indicator.slidebar.ColorBar;
 import com.shizhefei.view.indicator.slidebar.ScrollBar;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -177,7 +180,6 @@ public class HomePageFragment extends Fragment {
                 getResources().getColor(R.color.divide_gray_color)));
         homepageRecyclerviewHot.setLayoutManager(new LinearLayoutManager(getContext()));
         homepageRecyclerviewHot.setAdapter(new HotRvAdapter(hot));
-        LoggerUtils.D("======================");
     }
 
 
@@ -221,13 +223,11 @@ public class HomePageFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-//        bannerComponent.startAutoPlay();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        bannerComponent.stopAutoPlay();
     }
 
     private void addView(ViewGroup container) {

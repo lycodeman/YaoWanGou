@@ -18,6 +18,7 @@ public class StaticConstant {
     public static String HTTP_BANNER="banner";
     public static String HTTP_HOT="hot?offset=0&pagesize=6";
     public static String HTTP_ICON="icon";
+    public static String HTTP_GOODSCLASS="http://api.yaowangou.com/v1/goodsclass/";
 
 
 

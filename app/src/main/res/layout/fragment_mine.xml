@@ -1,13 +1,239 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/navigationbar"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.yaowangou.fragment.MineFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@drawable/personal_center_top_bg_icon"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="我的" >
 
-</FrameLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/mine_person_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="16dp"
+                fresco:placeholderImageScaleType="fitCenter"
+                android:background="@drawable/personal_center_head_default_icon"/>
+
+            <LinearLayout
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="账号"
+                        android:id="@+id/mine_person_acounts"/>
+                    <ImageView
+                        android:id="@+id/mine_person_messege"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/personal_center_notice_icon"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/mine_ywb_conunts"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="要玩币：0个"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/mine_change_zilaio"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="修改资料"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/geren_ziliao_xiugai_iocn"/>
+            </LinearLayout>
+            <View
+                android:background="@color/navigationbar"
+                android:layout_width="1dp"
+                android:layout_height="28dp"/>
+            <LinearLayout
+                android:id="@+id/mine_tuijianma"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="我的推荐码"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/geren_my_tuijianma_iocn"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/internal"/>
+
+        <LinearLayout
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/mine_shangcheng"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18dp"
+                    android:background="@drawable/personal_center_mall_order_icon"/>
+                <TextView
+                    android:text="商城订单"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+                android:background="@color/navigationbar"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:id="@+id/mine_tuangou"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18dp"
+                    android:background="@drawable/personal_center_groupon_order_icon"/>
+
+                <TextView
+                    android:text="我的推荐码"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/internal"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mine_setting_list"
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+        <include layout="@layout/internal"/>
+
+        <RelativeLayout
+            android:id="@+id/mine_tuijian"
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            >
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="向朋友推荐要玩购"/>
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/mine_back"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/submit"/>
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/mine_erweima"
+                android:layout_toLeftOf="@id/mine_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ywg_log_sm_image"/>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/mine_erweima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="（推荐有礼）"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center">
+            <View
+                android:layout_width="110dp"
+                android:layout_height="1dp"
+                android:background="@color/colorGrey"/>
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的足迹"
+                android:drawableLeft="@drawable/personal_center_my_footprint_icon"/>
+            <View
+                android:layout_width="110dp"
+                android:layout_height="1dp"
+                android:background="@color/colorGrey" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mine_foot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+</android.support.v4.widget.NestedScrollView>

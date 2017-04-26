@@ -4,6 +4,8 @@ import com.example.yaowangou.bean.Top;
 import com.example.yaowangou.interfac.IBanner;
 import com.example.yaowangou.interfac.IHot;
 import com.example.yaowangou.interfac.IIcon;
+import com.example.yaowangou.interfac.ILeftClass;
+import com.example.yaowangou.interfac.IRightClass;
 import com.example.yaowangou.interfac.ITeas;
 import com.example.yaowangou.interfac.ITop;
 
@@ -65,5 +67,27 @@ public class HttpUtils {
                 build();
         ITeas iTeas = retrofit.create(ITeas.class);
         return iTeas;
+    }
+
+    public static ILeftClass retrofitLeftCalss(String url) {
+        Retrofit retrofit = new Retrofit.Builder().
+                baseUrl(url).
+                addConverterFactory(GsonConverterFactory.create()).
+                client(new OkHttpClient()).
+                build();
+        ILeftClass iLeftClass = retrofit.create(ILeftClass.class);
+        return iLeftClass;
+    }
+
+    public static IRightClass retrofitT(String url) {
+        OkHttpClient client = new OkHttpClient();
+        Retrofit retrofit = new Retrofit.Builder().
+                baseUrl(url).
+
+                addConverterFactory(GsonConverterFactory.create()).
+                client(client).
+                build();
+        IRightClass it = retrofit.create(IRightClass.class);
+        return it;
     }
 }

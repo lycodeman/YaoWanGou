@@ -1,9 +1,9 @@
 package com.example.yaowangou.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -14,11 +14,16 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.yaowangou.R;
 import com.example.yaowangou.adapter.MainActivityViewpagerAdapter;
+import com.example.yaowangou.eventbus.ClossEvent;
 import com.example.yaowangou.fragment.ClassifyFragment;
 import com.example.yaowangou.fragment.HomePageFragment;
 import com.example.yaowangou.fragment.MineFragment;
 import com.example.yaowangou.fragment.ShoppingCartFragment;
 import com.example.yaowangou.utils.ActivityUtils;
+import com.example.yaowangou.utils.LoggerUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +46,8 @@ public class YaoWanGouActivity extends AppCompatActivity implements BottomNaviga
     TextView actionbarTvXiaoxi;
     @InjectView(R.id.main_toolbar)
     Toolbar mainToolbar;
+    @InjectView(R.id.appbar_layout)
+    AppBarLayout appbarLayout;
     private List<Fragment> fragments = new ArrayList<>();
     private int lastPosition;
 
@@ -49,11 +56,38 @@ public class YaoWanGouActivity extends AppCompatActivity implements BottomNaviga
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yao_wan_gou);
         ButterKnife.inject(this);
+        EventBus.getDefault().register(this);
         setSupportActionBar(mainToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
         initFragment();
         initNavigationBar();
         initViewpager();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void closeActionBar(ClossEvent clossEvent) {
+        int visibility = appbarLayout.getVisibility();
+        if (0 == clossEvent.clossId&& visibility==View.VISIBLE) {
+//            appbarLayout.setVisibility(View.GONE);
+            LoggerUtils.D("close actionbar");
+        }
+
+    }
+
+    @Subscribe
+    public void openActionBar(ClossEvent clossEvent) {
+        if (1 == clossEvent.clossId&&appbarLayout.getVisibility()==View.GONE) {
+//            appbarLayout.setVisibility(View.VISIBLE);
+            LoggerUtils.D("open actionbar");
+        }
+
     }
 
     private void initViewpager() {
@@ -114,6 +148,12 @@ public class YaoWanGouActivity extends AppCompatActivity implements BottomNaviga
     @Override
     public void onPageSelected(int position) {
         mainActivityBottomNavigationbar.selectTab(position, false);
+        if (position==0){
+            appbarLayout.setVisibility(View.VISIBLE);
+        }else {
+            appbarLayout.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
